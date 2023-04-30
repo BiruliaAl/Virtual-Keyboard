@@ -30,6 +30,7 @@ wrapper.append(textArea);
 
 let keyboardArea = document.createElement('div');
 keyboardArea.classList.add ('keyboard');
+keyboardArea.classList.add ('keyboard-area');
 wrapper.append(keyboardArea);
 
 export {wrapper, textArea, keyboardArea, tittle}

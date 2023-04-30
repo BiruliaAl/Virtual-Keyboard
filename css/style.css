@@ -3,6 +3,7 @@
     border: 2px solid rgb(16, 85, 85);
     padding: 5px;
     margin: 20px;
+    max-width: 1440px;
 }
 
 .text {
@@ -13,4 +14,18 @@
 
 .text-area {
     min-height: 200px;
+}
+
+.keyboard-area {
+    min-height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.k-key {
+    width: 75px;
+    height: 30px;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
 }
