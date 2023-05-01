@@ -24,10 +24,10 @@ document.addEventListener('keydown', (event) => {
     if (event.code == "Backspace") {
         textArea.innerHTML = textArea.innerHTML.slice(0, textArea.innerHTML.length - 1);
     }
-    if (event.shiftKey && event.altKey) {
+    if (event.altKey) {
         initKeyboardRusLowercase();
     }
-    if (event.shiftKey && event.ctrlKey) {
+    if (event.ctrlKey) {
         initKeyboardEngLowercase();
     }
     keyboard.forEach((element) => {
