@@ -1,19 +1,50 @@
 
 import {wrapper, textArea, keyboardArea, tittle} from './createWrapper.js'
-// import {keyboardEngLowercase} from './pressKeyboard.js'
 
-const keyboardEngLowercase = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', 'Shift', 'Control', 'Meta', 'Alt', ' ', 'Alt', 'Control', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'ArrowRight'];
+import {initKeyboardEngLowercase, initKeyboardRusLowercase, initKeyboardEngUppercase, initKeyboardRusUppercase} from './pressKeyboard.js'
 
-// document.addEventListener('keydown', (event) => {
-//     keyboardEngLowercase.push(event.key)
-//     console.log(keyboardEngLowercase)
-// })
+initKeyboardEngLowercase(); 
 
-function initKeyboardEngLowercase() {
-    let out = '';
-    for (let i = 0; i < keyboardEngLowercase.length; i++) {
-        out += '<div class="k-key">' + keyboardEngLowercase[i] + '</div>'
+let textAreaMessege;
+const keyboard = document.querySelectorAll('.k-key');
+
+document.addEventListener('keypress', (event) => {
+    keyboard.forEach((element) => {
+        if (element.dataset.hover == event.key) {
+            textAreaMessege = [];
+            textAreaMessege.push(event.key);
+            textArea.innerHTML += textAreaMessege;
+        }
+    })
+})
+
+document.addEventListener('keydown', (event) => {
+    console.dir(event)
+    if (event.code == "Backspace") {
+        // textArea.innerHTML
+        textArea.innerHTML = textArea.innerHTML.slice(0, textArea.innerHTML.length - 1);
     }
-    document.querySelector('.keyboard-area').innerHTML = out;
-}
-initKeyboardEngLowercase() 
+    if (event.shiftKey && event.altKey) {
+        initKeyboardRusLowercase();
+    }
+    if (event.shiftKey && event.ctrlKey) {
+        initKeyboardEngLowercase();
+    }
+    keyboard.forEach((element) => {
+        if(element.classList.contains('k-key_hover')) {
+            element.classList.remove('k-key_hover');
+        }
+        if (element.dataset.hover == event.key) {
+            element.classList.add('k-key_hover');
+        }
+    })   
+})
+
+
+
+
+
+
+
+
+

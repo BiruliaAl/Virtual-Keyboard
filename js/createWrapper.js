@@ -20,7 +20,7 @@ document.body.append(wrapper);
 
 let tittle = document.createElement('h3');
 tittle.classList.add ('text');
-tittle.textContent = 'операционная система Windows, переключение раскладки shift + alt';
+tittle.textContent = 'операционная система Windows .... переключение раскладки на русский shift + alt .... переключение расскадки на англ shift + ctrl';
 wrapper.append(tittle);
 
 let textArea = document.createElement('div');
